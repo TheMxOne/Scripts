@@ -1,12 +1,13 @@
 import os 
 import shutil
+import tqdm
 #%%
 
 def folder_to_files():
     source_path = input("Enter the source path: ")
     target_path = input("Enter the target path: ")
     dirs = os.listdir(source_path)
-    for dir in dirs:
+    for dir in tqdm.tqdm(dirs):
         dir_path = os.path.join(source_path, dir)
         files = os.listdir(dir_path)
         files_path = [os.path.join(dir_path, file) for file in files]
